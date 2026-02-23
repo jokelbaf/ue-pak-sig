@@ -2,6 +2,27 @@
 
 A simple tool to create and verify Unreal Engine 4.26/4.27 `.sig` files in Rust.
 
+## Installation
+
+The crate can be used as a library or installed as a CLI tool.
+
+### CLI
+
+You can install the tool for CLI usage with:
+
+```sh
+cargo install --git https://github.com/jokelbaf/ue-pak-sig.git
+```
+
+### Library
+
+Add this to your `Cargo.toml`:
+
+```toml
+[dependencies]
+ue-pak-sig = { git = "https://github.com/jokelbaf/ue-pak-sig.git" }
+```
+
 ## Usage
 
 ### CLI
