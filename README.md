@@ -7,7 +7,7 @@ A simple tool to create and verify Unreal Engine 4.26/4.27 `.sig` files in Rust.
 ### CLI
 
 ```
-ue-pak-sig --key config.ini [--ue-version 4-27] <COMMAND>
+ue-pak-sig --config config.ini [--ue-version 4-27] <COMMAND>
 
 Commands:
   sign    Sign a .pak file and write the corresponding .sig file
@@ -18,20 +18,20 @@ Commands:
 Sign a pak:
 
 ```sh
-ue-pak-sig --key config.ini sign file.pak
+ue-pak-sig --config config.ini sign file.pak
 # writes file.sig
 ```
 
 Verify an existing pair:
 
 ```sh
-ue-pak-sig --key config.ini verify pakchunk0.pak pakchunk0.sig
+ue-pak-sig --config config.ini verify pakchunk0.pak pakchunk0.sig
 ```
 
 Inspect a sig file without verifying:
 
 ```sh
-ue-pak-sig --key config.ini info pakchunk0.sig
+ue-pak-sig --config config.ini info pakchunk0.sig
 ```
 
 The `--ue-version` flag defaults to `4-27`. Use `4-26` for games built with
