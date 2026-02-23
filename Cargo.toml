@@ -1,0 +1,20 @@
+[package]
+name = "ue-pak-sig"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "ue_pak_sig"
+
+[[bin]]
+name = "ue-pak-sig"
+path = "src/main.rs"
+
+[dependencies]
+thiserror = "2"
+rsa = "0.9"
+sha1 = "0.10"
+crc32fast = "1"
+base64 = "0.22"
+clap = { version = "4", features = ["derive"] }
+colored = "3"

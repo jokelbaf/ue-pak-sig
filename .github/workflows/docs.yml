@@ -1,0 +1,35 @@
+name: Generate and Deploy Docs
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Rust toolchain
+        run: |
+          rustup update nightly
+          rustup default nightly
+
+      - name: Build docs
+        run: cargo doc --no-deps --verbose
+
+      - name: Add redirect
+        run: echo '<meta http-equiv="refresh" content="0;url=ue_pak_sig/index.html">' > target/doc/index.html
+
+      - name: Copy CNAME
+        run: cp CNAME target/doc/CNAME
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/doc
+          publish_branch: gh-pages
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
